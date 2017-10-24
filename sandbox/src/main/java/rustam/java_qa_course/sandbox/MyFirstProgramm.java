@@ -16,8 +16,9 @@ public class MyFirstProgramm {
 	}
 
 	public static double Distance (double p1, double p2){
-        double distance=Math.sqrt(p1*p1 + p2*p2);
-	    return distance;
+
+	    
+	    return Math.sqrt(p1*p1 + p2*p2);
 	}
 
 
