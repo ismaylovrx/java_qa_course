@@ -5,22 +5,18 @@ public class MyFirstProgram {
 
     public static void main(String[] args) {
 
-        Point r = new Point();
+       double x1 = 6;
+       double x2 = 5;
+       double y1 = 5;
+       double y2 = 5;
 
-        double x1 = 16;
-        double x2 = 13;
-        double y1 = 36;
-        double y2 = 12;
-        r.p1 = (x1-x2);
-        r.p2= (y1-y2);
-
-        System.out.println("Расстояние между двумя точками " + r.p1 + " и " + r.p2 +" = " + Distance(r));
+        System.out.println("Расстояние между двумя точками r1 и r2 = " + Distance(x1, x2, y1, y2));
     }
 
-    public static double Distance (Point r){
+    public static double Distance (Double x1, Double x2, Double y1, Double y2){
 
 
-        return Math.sqrt(r.p1*r.p1 + r.p2*r.p2);
+        return Math.sqrt(((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1)));
     }
 
 
