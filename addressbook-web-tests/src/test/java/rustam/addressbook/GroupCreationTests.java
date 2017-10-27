@@ -19,9 +19,9 @@ public class GroupCreationTests {
 
   @BeforeClass(alwaysRun = true)
   public void setUp() throws Exception {
-    baseUrl = "http://localhost:8080/";
-    wd = new FirefoxDriver(new FirefoxOptions().setLegacy(true));
-    wd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+    baseUrl = "http://localhost:8080";
+    driver = new FirefoxDriver(new FirefoxOptions().setLegacy(true));
+    driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
   }
 
   @Test
@@ -46,7 +46,7 @@ public class GroupCreationTests {
 
   @AfterClass(alwaysRun = true)
   public void tearDown() throws Exception {
-    driver.quit();
+    //driver.quit();
     String verificationErrorString = verificationErrors.toString();
     if (!"".equals(verificationErrorString)) {
       fail(verificationErrorString);
