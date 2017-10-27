@@ -2,6 +2,8 @@ package rustam.addressbook;
 
 import java.util.regex.Pattern;
 import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.testng.annotations.*;
 import static org.testng.Assert.*;
 import org.openqa.selenium.*;
@@ -18,7 +20,7 @@ public class GroupCreationTests {
   @BeforeClass(alwaysRun = true)
   public void setUp() throws Exception {
     baseUrl = "http://localhost:8080/";
-    wd = new FirefoxDriver();
+    wd = new FirefoxDriver(new FirefoxOptions().setLegacy(true));
     wd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
   }
 
