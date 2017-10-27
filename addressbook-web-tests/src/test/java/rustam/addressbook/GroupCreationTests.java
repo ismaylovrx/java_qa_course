@@ -22,16 +22,18 @@ public class GroupCreationTests {
     baseUrl = "http://localhost:8080";
     driver = new FirefoxDriver(new FirefoxOptions().setLegacy(true));
     driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
-  }
-
-  @Test
-  public void testGroupCreationTests() throws Exception {
     driver.get(baseUrl + "/addressbook/");
     driver.findElement(By.name("user")).clear();
     driver.findElement(By.name("user")).sendKeys("admin");
     driver.findElement(By.name("pass")).clear();
     driver.findElement(By.name("pass")).sendKeys("secret");
     driver.findElement(By.cssSelector("input[type=\"submit\"]")).click();
+  }
+
+
+  @Test
+  public void testGroupCreation() throws Exception {
+
     driver.findElement(By.linkText("groups")).click();
     driver.findElement(By.name("new")).click();
     driver.findElement(By.name("group_name")).clear();
