@@ -1,4 +1,4 @@
-package com.example.tests;
+package rustam.addressbook;
 
 import java.util.concurrent.TimeUnit;
 
@@ -8,7 +8,6 @@ import static org.testng.Assert.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
-import rustam.addressbook_HW1.NewUserData;
 
 public class NewUserCreation {
   private WebDriver driver;

@@ -1,4 +1,4 @@
-package rustam.addressbook_HW1;
+package rustam.addressbook;
 
 public class NewUserData {
     private final String name;
