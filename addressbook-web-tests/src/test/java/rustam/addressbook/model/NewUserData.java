@@ -1,4 +1,4 @@
-package rustam.addressbook;
+package rustam.addressbook.model;
 
 public class NewUserData {
     private final String name;
