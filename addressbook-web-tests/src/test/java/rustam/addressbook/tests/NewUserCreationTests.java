@@ -10,7 +10,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 import rustam.addressbook.model.NewUserData;
 
-public class NewUserCreationTests {
+public class NewUserCreationTests extends TestBase{
   private WebDriver driver;
   private String baseUrl;
   private boolean acceptNextAlert = true;
