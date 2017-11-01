@@ -4,7 +4,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 import rustam.addressbook.model.NewUserData;
-import rustam.addressbook.tests.TestBase;
 
 public class UserHelper {
     private WebDriver driver;
@@ -17,7 +16,7 @@ public class UserHelper {
         driver.findElement(By.linkText("add new")).click();
     }
 
-    public void fillNewUserForm(NewUserData newUserData, TestBase testBase) {
+    public void fillNewUserForm(NewUserData newUserData) {
         driver.findElement(By.name("firstname")).clear();
         driver.findElement(By.name("firstname")).sendKeys(newUserData.getName());
         driver.findElement(By.name("lastname")).clear();
