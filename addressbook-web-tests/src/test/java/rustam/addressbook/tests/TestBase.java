@@ -23,9 +23,7 @@ public class TestBase {
         driver.findElement(By.linkText("Logout")).click();
     }
 
-    public void submitNewUserCreation() {
-        driver.findElement(By.xpath("//input[21]")).click();
-    }
+
 
     public void gotoNewUserPage() {
         driver.findElement(By.cssSelector("input[type=\"submit\"]")).click();
