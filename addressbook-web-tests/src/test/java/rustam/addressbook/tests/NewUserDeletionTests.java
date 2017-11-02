@@ -9,7 +9,7 @@ public class NewUserDeletionTests extends TestBase {
 
         app.getUserHelper().selectUser();
         app.getUserHelper().deleteSelectedUsers();
-        driver.switchTo().alert().accept();
+
     }
 
 }

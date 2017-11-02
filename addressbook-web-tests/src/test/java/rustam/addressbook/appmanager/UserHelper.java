@@ -37,7 +37,8 @@ public class UserHelper extends HelperBase{
     }
 
     public void deleteSelectedUsers() {
-        click(By.xpath("(//input[@name='delete']"));
+        click(By.xpath("//input[@value='Delete']"));
+        driver.switchTo().alert().accept();
     }
 
     public void type(By locator, String text) {
@@ -54,4 +55,11 @@ public class UserHelper extends HelperBase{
     }
 
 
+    public void initUserModification() {
+        click(By.cssSelector("img[alt=\"Edit\"]"));
+    }
+
+    public void submitUserModification() {
+        click(By.name("update"));
+    }
 }

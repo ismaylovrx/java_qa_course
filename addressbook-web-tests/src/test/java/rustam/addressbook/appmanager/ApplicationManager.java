@@ -30,7 +30,7 @@ public class ApplicationManager {
 
     public void stop() {
         sessionHelper.Logout();
-        driver.quit();
+        //driver.quit();
         String verificationErrorString = verificationErrors.toString();
         if (!"".equals(verificationErrorString)) {
             fail(verificationErrorString);
