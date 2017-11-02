@@ -32,6 +32,14 @@ public class UserHelper extends HelperBase{
         type(By.name("byear"), newUserData.getByear());
     }
 
+    public void selectUser() {
+        click(By.name("selected[]"));
+    }
+
+    public void deleteSelectedUsers() {
+        click(By.xpath("(//input[@name='delete']"));
+    }
+
     public void type(By locator, String text) {
         driver.findElement(locator).clear();
         driver.findElement(locator).sendKeys(text);
@@ -44,5 +52,6 @@ public class UserHelper extends HelperBase{
     public void click(By locator) {
         driver.findElement(locator).click();
     }
+
 
 }
