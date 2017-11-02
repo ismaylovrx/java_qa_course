@@ -4,7 +4,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 import rustam.addressbook.model.NewUserData;
-import rustam.addressbook.tests.NewUserCreationTests;
 
 public class UserHelper {
     private WebDriver driver;
@@ -14,36 +13,35 @@ public class UserHelper {
     }
 
     public void initNewUserCreation() {
-        driver.findElement(By.linkText("add new")).click();
+        click(By.linkText("add new"));
     }
 
-    public void fillNewUserForm(NewUserData newUserData, NewUserCreationTests newUserCreationTests) {
-        driver.findElement(By.name("firstname")).clear();
-        driver.findElement(By.name("firstname")).sendKeys(newUserData.getName());
-        driver.findElement(By.name("lastname")).clear();
-        driver.findElement(By.name("lastname")).sendKeys(newUserData.getLastname());
-        driver.findElement(By.name("nickname")).clear();
-        driver.findElement(By.name("nickname")).sendKeys(newUserData.getNickname());
-        driver.findElement(By.name("company")).clear();
-        driver.findElement(By.name("company")).sendKeys(newUserData.getCompany());
-        driver.findElement(By.name("address")).clear();
-        driver.findElement(By.name("address")).sendKeys(newUserData.getAddress());
-        driver.findElement(By.name("home")).clear();
-        driver.findElement(By.name("home")).sendKeys(newUserData.getHome_tel());
-        driver.findElement(By.name("mobile")).clear();
-        driver.findElement(By.name("mobile")).sendKeys(newUserData.getMobile_tel());
-        driver.findElement(By.name("work")).clear();
-        driver.findElement(By.name("work")).sendKeys(newUserData.getWork_tel());
-        driver.findElement(By.name("email")).clear();
-        driver.findElement(By.name("email")).sendKeys(newUserData.getEmail());
+    public void fillNewUserForm(NewUserData newUserData) {
+        type(By.name("firstname"), newUserData.getName());
+        type(By.name("lastname"), newUserData.getLastname());
+        type(By.name("nickname"), newUserData.getNickname());
+        type(By.name("company"), newUserData.getCompany());
+        type(By.name("address"), newUserData.getAddress());
+        type(By.name("home"), newUserData.getHome_tel());
+        type(By.name("mobile"), newUserData.getMobile_tel());
+        type(By.name("work"), newUserData.getWork_tel());
+        type(By.name("email"), newUserData.getEmail());
         new Select(driver.findElement(By.name("bday"))).selectByVisibleText(newUserData.getBday());
         new Select(driver.findElement(By.name("bmonth"))).selectByVisibleText(newUserData.getBmonth());
-        driver.findElement(By.name("byear")).clear();
-        driver.findElement(By.name("byear")).sendKeys(newUserData.getByear());
+        type(By.name("byear"), newUserData.getByear());
+    }
+
+    private void type(By locator, String text) {
+        driver.findElement(locator).clear();
+        driver.findElement(locator).sendKeys(text);
     }
 
     public void submitNewUserCreation() {
-        driver.findElement(By.xpath("//input[21]")).click();
+        click(By.xpath("//input[21]"));
+    }
+
+    private void click(By locator) {
+        driver.findElement(locator).click();
     }
 
 }

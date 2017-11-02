@@ -10,7 +10,7 @@ public class NewUserCreationTests extends TestBase{
 
     app.getNavigationHelper().gotoNewUserPage();
     app.getUserHelper().initNewUserCreation();
-    app.getUserHelper().fillNewUserForm(new NewUserData("Rafig", "Suleyman", "Boxter", "Tiesto Company", "Zarfarpalan 133", "5947957", "0703442020", "5468123", "test@test.com", "23", "November", "1980"), NewUserCreationTests.this);
+    app.getUserHelper().fillNewUserForm(new NewUserData("Rafig", "Suleyman", "Boxter", "Tiesto Company", "Zarfarpalan 133", "5947957", "0703442020", "5468123", "test@test.com", "23", "November", "1980"));
     app.getUserHelper().submitNewUserCreation();
 
   }
