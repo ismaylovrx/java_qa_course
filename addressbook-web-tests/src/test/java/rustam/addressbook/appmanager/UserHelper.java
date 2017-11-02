@@ -5,11 +5,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 import rustam.addressbook.model.NewUserData;
 
-public class UserHelper {
-    private WebDriver driver;
+public class UserHelper extends HelperBase{
+
 
     public UserHelper(WebDriver driver) {
-        this.driver = driver;
+        super(driver);
+
     }
 
     public void initNewUserCreation() {
@@ -31,7 +32,7 @@ public class UserHelper {
         type(By.name("byear"), newUserData.getByear());
     }
 
-    private void type(By locator, String text) {
+    public void type(By locator, String text) {
         driver.findElement(locator).clear();
         driver.findElement(locator).sendKeys(text);
     }
@@ -40,7 +41,7 @@ public class UserHelper {
         click(By.xpath("//input[21]"));
     }
 
-    private void click(By locator) {
+    public void click(By locator) {
         driver.findElement(locator).click();
     }
 

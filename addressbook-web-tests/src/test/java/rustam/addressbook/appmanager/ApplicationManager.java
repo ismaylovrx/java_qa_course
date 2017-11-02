@@ -1,11 +1,8 @@
 package rustam.addressbook.appmanager;
 
-import org.openqa.selenium.*;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
-import org.openqa.selenium.support.ui.Select;
-import rustam.addressbook.model.NewUserData;
-import rustam.addressbook.tests.TestBase;
 
 import java.util.concurrent.TimeUnit;
 
@@ -18,7 +15,6 @@ public class ApplicationManager {
     private SessionHelper sessionHelper;
     private NavigationHelper navigationHelper;
     private GroupsHelper groupsHelper;
-    public boolean acceptNextAlert = true;
     public StringBuffer verificationErrors = new StringBuffer();
 
     public void init() {
@@ -32,33 +28,12 @@ public class ApplicationManager {
         sessionHelper.login("admin", "secret");
     }
 
-
-
-    private void Logout() {
-      driver.findElement(By.linkText("Logout")).click();
-    }
-
     public void stop() {
-        Logout();
+        sessionHelper.Logout();
         driver.quit();
         String verificationErrorString = verificationErrors.toString();
         if (!"".equals(verificationErrorString)) {
-          fail(verificationErrorString);
-        }
-    }
-
-    public String closeAlertAndGetItsText() {
-        try {
-            Alert alert = driver.switchTo().alert();
-            String alertText = alert.getText();
-            if (acceptNextAlert) {
-                alert.accept();
-            } else {
-                alert.dismiss();
-            }
-            return alertText;
-        } finally {
-            acceptNextAlert = true;
+            fail(verificationErrorString);
         }
     }
 
@@ -73,6 +48,5 @@ public class ApplicationManager {
     public UserHelper getUserHelper() {
         return userHelper;
     }
-
 
 }
