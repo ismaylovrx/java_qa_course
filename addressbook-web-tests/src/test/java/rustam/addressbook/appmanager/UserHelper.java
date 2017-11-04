@@ -3,6 +3,7 @@ package rustam.addressbook.appmanager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 import rustam.addressbook.model.NewUserData;
 
 public class UserHelper extends HelperBase{
@@ -17,7 +18,7 @@ public class UserHelper extends HelperBase{
         click(By.linkText("add new"));
     }
 
-    public void fillNewUserForm(NewUserData newUserData) {
+    public void fillNewUserForm(NewUserData newUserData, boolean creation) {
         type(By.name("firstname"), newUserData.getName());
         type(By.name("lastname"), newUserData.getLastname());
         type(By.name("nickname"), newUserData.getNickname());
@@ -30,6 +31,12 @@ public class UserHelper extends HelperBase{
         new Select(driver.findElement(By.name("bday"))).selectByVisibleText(newUserData.getBday());
         new Select(driver.findElement(By.name("bmonth"))).selectByVisibleText(newUserData.getBmonth());
         type(By.name("byear"), newUserData.getByear());
+
+        if (creation) {
+            new Select(driver.findElement(By.name("new_group"))).selectByVisibleText(newUserData.getgroup());
+        } else {
+            Assert.assertFalse(isElementPresent(By.name("new_group")));
+        }
     }
 
     public void selectUser() {
