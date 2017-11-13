@@ -54,7 +54,7 @@ public class UserHelper extends HelperBase{
     }
 
     public void submitNewUserCreation() {
-        click(By.xpath("//input[21]"));
+        click(By.name("submit"));
     }
 
     public void click(By locator) {

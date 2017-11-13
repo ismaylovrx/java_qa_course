@@ -7,7 +7,7 @@ import rustam.addressbook.appmanager.ApplicationManager;
 
 public class TestBase {
 
-    public final ApplicationManager app = new ApplicationManager(BrowserType.IE);
+    public final ApplicationManager app = new ApplicationManager(BrowserType.CHROME);
 
     @BeforeClass(alwaysRun = true)
     public void setUp() throws Exception {
