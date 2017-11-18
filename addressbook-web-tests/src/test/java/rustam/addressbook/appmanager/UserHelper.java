@@ -69,4 +69,29 @@ public class UserHelper extends HelperBase{
     public void submitUserModification() {
         click(By.name("update"));
     }
+
+    public boolean isThereAUser() {
+      if(isElementPresentMy(By.name("selected[]")) && !isElementPresentMy(By.id("MassCB"))) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+
+    public void createNewUser() {
+    initNewUserCreation();
+    fillNewUserForm(new NewUserData("Rafig", "Suleyman", "Boxter",
+            "Tiesto Company", "Zarfarpalan 133", "5947957", "0703442020",
+            "5468123", "test@test.com", "23", "November", "1980", "test1"), true);
+    submitNewUserCreation();
+  }
+
+  public void modifyNewUser() {
+    selectUser();
+    initUserModification();
+    fillNewUserForm(new NewUserData("Mahir", "Suleyman", "Boxter",
+            "Tiesto Company", "Zarfarpalan 133", "5947957", "0703442020",
+            "5468123", "test@test.com", "23", "November", "1980", null), false);
+    submitUserModification();
+  }
 }

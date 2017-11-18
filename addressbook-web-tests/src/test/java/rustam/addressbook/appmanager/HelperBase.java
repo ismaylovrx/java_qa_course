@@ -35,14 +35,16 @@ public class HelperBase {
     }
 
     public boolean isElementPresent(By locator) {
+      return isElementPresentMy(locator);
+    }
+    public boolean isElementPresentMy(By id) {
         try {
-            driver.findElement(locator);
+            driver.findElement (id);
             return true;
         } catch (NoSuchElementException ex) {
             return false;
         }
     }
-
     public String closeAlertAndGetItsText() {
         try {
             Alert alert = driver.switchTo().alert();

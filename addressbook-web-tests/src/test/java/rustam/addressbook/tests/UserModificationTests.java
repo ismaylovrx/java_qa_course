@@ -7,12 +7,11 @@ public class UserModificationTests extends TestBase {
 
     @Test
     public void testUserModofocation(){
-        app.getUserHelper().selectUser();
-        app.getUserHelper().initUserModification();
-        app.getUserHelper().fillNewUserForm(new NewUserData("Mahir", "Suleyman", "Boxter",
-                "Tiesto Company", "Zarfarpalan 133", "5947957", "0703442020",
-                "5468123", "test@test.com", "23", "November", "1980", null), false);
-        app.getUserHelper().submitUserModification();
+        if (! app.getUserHelper().isThereAUser()) {
+            app.getUserHelper().modifyNewUser();
+        }
+
 
     }
+
 }
