@@ -71,11 +71,8 @@ public class UserHelper extends HelperBase{
     }
 
     public boolean isThereAUser() {
-      if(isElementPresentMy(By.name("selected[]")) && !isElementPresentMy(By.id("MassCB"))) {
-        return true;
-      } else {
-        return false;
-      }
+      return isElementPresent (By.name("selected[]"));
+
     }
 
     public void createNewUser() {

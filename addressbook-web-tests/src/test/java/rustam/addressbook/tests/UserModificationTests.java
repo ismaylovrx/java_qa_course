@@ -8,9 +8,9 @@ public class UserModificationTests extends TestBase {
     @Test
     public void testUserModofocation(){
         if (! app.getUserHelper().isThereAUser()) {
-            app.getUserHelper().modifyNewUser();
+            app.getUserHelper().createNewUser();
         }
-
+    app.getUserHelper().modifyNewUser();
 
     }
 
