@@ -4,6 +4,8 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import rustam.addressbook.model.GroupData;
 
+import java.util.List;
+
 public class GroupCreationTests extends TestBase {
 
 
@@ -11,10 +13,10 @@ public class GroupCreationTests extends TestBase {
   public void testGroupCreation() throws Exception {
 
     app.getNavigationHelper().gotoGroupPage();
-    int before = app.getGroupsHelper().getGroupCount();
+    List<GroupData> before = app.getGroupsHelper().getGroupList();
     app.getGroupsHelper().createGroup(new GroupData("test1", null, null));
-    int after = app.getGroupsHelper().getGroupCount();
-    Assert.assertEquals(after, before + 1);
+    List<GroupData> after = app.getGroupsHelper().getGroupList();
+    Assert.assertEquals(after.size(), before.size() + 1);
 
   }
 
