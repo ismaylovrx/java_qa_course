@@ -37,7 +37,7 @@ public class ApplicationManager {
             driver = new InternetExplorerDriver();
         }
 
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
         driver.get("http://localhost:8080/addressbook/");
         groupsHelper = new GroupsHelper(driver);
         navigationHelper = new NavigationHelper(driver);
